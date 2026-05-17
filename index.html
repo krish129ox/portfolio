@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Krish Raj — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --white:#ffffff;
+  --off:#f7f6f3;
+  --bg:#fafaf8;
+  --ink:#0f0f0e;
+  --ink2:#3a3a38;
+  --ink3:#7a7a76;
+  --border:#e8e8e4;
+  --border2:#d0d0cb;
+  --blue:#1a56db;
+  --blue-bg:#eef3ff;
+  --tag-bg:#f0f0ec;
+  --green:#16a34a;
+  --green-bg:#f0fdf4;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.6;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:64px;background:rgba(250,250,248,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--ink);text-decoration:none;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--ink3);text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.02em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-social{display:flex;gap:0.6rem;align-items:center;}
+.nav-icon{width:34px;height:34px;border-radius:7px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all 0.2s;background:var(--white);cursor:pointer;}
+.nav-icon:hover{border-color:var(--ink);transform:translateY(-1px);box-shadow:0 3px 10px rgba(0,0,0,0.08);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:0 4rem;position:relative;border-bottom:1px solid var(--border);}
+.hero-eyebrow{display:flex;align-items:center;gap:0.75rem;margin-bottom:2rem;opacity:0;animation:up 0.6s 0.1s forwards;}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,0.18);}
+.hero-eyebrow span{font-size:0.8rem;font-weight:500;color:var(--ink3);letter-spacing:0.03em;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6.5rem);font-weight:700;line-height:1.02;letter-spacing:-0.03em;color:var(--ink);opacity:0;animation:up 0.7s 0.2s forwards;}
+.hero h1 em{font-style:italic;color:var(--ink3);}
+.hero-desc{margin-top:2rem;max-width:520px;font-size:1rem;color:var(--ink3);font-weight:400;line-height:1.8;opacity:0;animation:up 0.7s 0.35s forwards;}
+.hero-actions{margin-top:2.5rem;display:flex;gap:1rem;align-items:center;opacity:0;animation:up 0.7s 0.5s forwards;}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.7rem 1.6rem;border-radius:8px;font-family:'Manrope',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.01em;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;}
+.btn-dark{background:var(--ink);color:var(--white);}
+.btn-dark:hover{background:var(--ink2);transform:translateY(-2px);}
+.btn-outline{background:var(--white);color:var(--ink);border:1px solid var(--border2);}
+.btn-outline:hover{border-color:var(--ink);transform:translateY(-2px);}
+.hero-chips{position:absolute;right:4rem;bottom:4rem;display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem;opacity:0;animation:up 0.7s 0.7s forwards;}
+.chip{padding:0.35rem 0.9rem;background:var(--white);border:1px solid var(--border);border-radius:100px;font-size:0.73rem;font-weight:500;color:var(--ink3);}
+
+/* ── SECTION BASE ── */
+section{padding:6rem 4rem;border-bottom:1px solid var(--border);}
+.label{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink3);margin-bottom:0.75rem;}
+h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:700;letter-spacing:-0.02em;line-height:1.1;margin-bottom:3rem;color:var(--ink);}
+
+/* ── ABOUT ── */
+.about-layout{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:start;}
+.about-body p{font-size:0.97rem;color:var(--ink3);line-height:1.85;margin-bottom:1.1rem;font-weight:400;}
+.about-body p strong{color:var(--ink);font-weight:600;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.stat{background:var(--white);padding:1.5rem 1.25rem;}
+.stat-n{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--ink);line-height:1;margin-bottom:0.3rem;}
+.stat-l{font-size:0.75rem;color:var(--ink3);font-weight:500;line-height:1.3;}
+
+/* ── PROJECTS ── */
+.projects-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.project{background:var(--white);padding:1.75rem 2.5rem;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2rem;text-decoration:none;color:var(--ink);transition:background 0.2s;}
+.project:hover{background:var(--off);}
+.project-idx{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--border2);font-style:italic;min-width:32px;}
+.project-info h3{font-size:1.02rem;font-weight:600;margin-bottom:0.3rem;color:var(--ink);}
+.project-info p{font-size:0.84rem;color:var(--ink3);line-height:1.55;margin-bottom:0.65rem;}
+.project-pills{display:flex;flex-wrap:wrap;gap:0.35rem;}
+.pill{padding:0.18rem 0.6rem;background:var(--tag-bg);border-radius:4px;font-size:0.71rem;font-weight:500;color:var(--ink2);}
+.project-arrow{color:var(--border2);font-size:1.1rem;transition:all 0.2s;flex-shrink:0;}
+.project:hover .project-arrow{color:var(--ink);transform:translate(3px,-3px);}
+
+/* ── CERTIFICATIONS ── */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;}
+.cert-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;flex-direction:column;gap:0.75rem;transition:all 0.2s;}
+.cert-card:hover{border-color:var(--border2);transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,0.07);}
+.cert-logo{height:36px;display:flex;align-items:center;}
+.cert-logo img{height:100%;width:auto;object-fit:contain;}
+.cert-name{font-size:0.9rem;font-weight:600;color:var(--ink);line-height:1.35;}
+.cert-issuer{font-size:0.75rem;color:var(--ink3);font-weight:500;}
+.cert-badge{display:inline-flex;align-items:center;gap:0.3rem;margin-top:auto;padding:0.22rem 0.65rem;background:var(--green-bg);border-radius:4px;font-size:0.7rem;font-weight:600;color:var(--green);}
+
+/* ── SKILLS ── */
+.skills-layout{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2rem;}
+.skill-group h4{font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink3);padding-bottom:0.75rem;border-bottom:1px solid var(--border);margin-bottom:1rem;}
+.skill-items{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.sk{padding:0.3rem 0.75rem;background:var(--white);border:1px solid var(--border);border-radius:6px;font-size:0.78rem;font-weight:500;color:var(--ink2);transition:all 0.15s;}
+.sk:hover{border-color:var(--border2);color:var(--ink);}
+
+/* ── TIMELINE ── */
+.timeline{display:flex;flex-direction:column;}
+.tl-item{display:grid;grid-template-columns:100px 1fr;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid var(--border);}
+.tl-year{font-size:0.8rem;font-weight:600;color:var(--ink3);padding-top:0.15rem;letter-spacing:0.02em;}
+.tl-content h4{font-size:0.97rem;font-weight:600;color:var(--ink);margin-bottom:0.2rem;}
+.tl-content p{font-size:0.83rem;color:var(--ink3);line-height:1.5;}
+.tl-badge{display:inline-block;margin-top:0.5rem;padding:0.18rem 0.6rem;background:var(--blue-bg);border-radius:4px;font-size:0.7rem;font-weight:600;color:var(--blue);}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.contact-intro p{font-size:0.97rem;color:var(--ink3);line-height:1.8;margin-top:-0.5rem;}
+.social-links{display:flex;flex-direction:column;gap:0.7rem;}
+.social-link{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--white);border:1px solid var(--border);border-radius:10px;text-decoration:none;color:var(--ink);transition:all 0.2s;}
+.social-link:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,0.06);}
+.social-link-icon{width:40px;height:40px;border-radius:8px;border:1px solid var(--border);background:var(--off);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
+.social-link-text{flex:1;}
+.social-link-name{font-size:0.75rem;font-weight:500;color:var(--ink3);letter-spacing:0.02em;}
+.social-link-handle{font-size:0.92rem;font-weight:600;color:var(--ink);margin-top:0.06rem;}
+.social-link-arr{color:var(--border2);transition:0.2s;font-size:1rem;}
+.social-link:hover .social-link-arr{color:var(--ink);transform:translateX(4px);}
+.email-cta{margin-top:0.7rem;display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;background:var(--ink);border-radius:10px;text-decoration:none;color:var(--white);transition:background 0.2s;}
+.email-cta:hover{background:var(--ink2);}
+.email-icon{width:40px;height:40px;border-radius:8px;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.email-text{flex:1;}
+.email-label{font-size:0.75rem;font-weight:500;color:rgba(255,255,255,0.5);letter-spacing:0.02em;}
+.email-val{font-size:0.9rem;font-weight:600;margin-top:0.06rem;}
+.email-arr{color:rgba(255,255,255,0.35);}
+
+/* ── FOOTER ── */
+footer{padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;}
+footer p{font-size:0.78rem;color:var(--ink3);}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.78rem;color:var(--ink3);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--ink);}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 0.6s,transform 0.6s;}
+.reveal.visible{opacity:1;transform:none;}
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav{padding:0 1.5rem;}
+  .nav-links{display:none;}
+  section{padding:4rem 1.5rem;}
+  .hero{padding:5rem 1.5rem 4rem;min-height:auto;}
+  .hero-chips{display:none;}
+  .about-layout,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .skills-layout{grid-template-columns:1fr 1fr;}
+  .project{padding:1.25rem 1.5rem;grid-template-columns:auto 1fr auto;gap:1rem;}
+  .certs-grid{grid-template-columns:1fr 1fr;}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Krish Raj</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-social">
+    <!-- GitHub -->
+    <a class="nav-icon" href="https://github.com/krish129ox" target="_blank" rel="noopener" title="GitHub" onclick="window.open('https://github.com/krish129ox','_blank');return false;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a>
+    <!-- LinkedIn -->
+    <a class="nav-icon" href="https://linkedin.com/in/krish-raj-163472377" target="_blank" rel="noopener" title="LinkedIn" onclick="window.open('https://linkedin.com/in/krish-raj-163472377','_blank');return false;">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <!-- Instagram -->
+    <a class="nav-icon" href="https://instagram.com/krish_raj118" target="_blank" rel="noopener" title="Instagram" onclick="window.open('https://instagram.com/krish_raj118','_blank');return false;">
+      <svg width="17" height="17" viewBox="0 0 24 24"><defs><linearGradient id="ig-n" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig-n)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-eyebrow">
+    <div class="hero-dot"></div>
+    <span>B.Tech Computer Science &amp; Technology · SAGE University, Indore</span>
+  </div>
+  <h1>Krish Raj —<br/><em>builder &amp; thinker.</em></h1>
+  <p class="hero-desc">I build things for the web, write Java at 2 am, and think too hard about philosophy between commits. Currently in my first year of CS, figuring it all out one project at a time.</p>
+  <div class="hero-actions">
+    <a href="#projects" class="btn btn-dark">View Projects →</a>
+    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+  </div>
+  <div class="hero-chips">
+    <span class="chip">Java · HTML/CSS · SQL</span>
+    <span class="chip">Certified — Deloitte · Mastercard · TCS</span>
+    <span class="chip">Indore, India</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="label reveal">About me</div>
+  <h2 class="reveal">Who I am.</h2>
+  <div class="about-layout">
+    <div class="about-body reveal">
+      <p>I'm a first-year <strong>B.Tech Computer Science &amp; Technology</strong> student at SAGE University, Indore (Batch 2025–2029). I spend most of my time learning by building — web projects, Java programs, and the occasional Git disaster I have to unfold.</p>
+      <p>My technical work spans <strong>Java, HTML, CSS, JavaScript, and SQL</strong>. I've built booking platforms, government services websites, and a solar system simulation — and pushed enough broken code to GitHub to know what <em>not</em> to do.</p>
+      <p>I hold virtual experience certifications from <strong>Deloitte, Mastercard, and TCS</strong>. Outside of CS, I have a deep interest in <strong>philosophy</strong> — particularly Advaita Vedanta and the Bhagavad Gita. I also shoot photography when the light cooperates.</p>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Projects shipped &amp; deployed</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Industry certifications earned</div></div>
+      <div class="stat"><div class="stat-n">24h</div><div class="stat-l">Hackathon organized at SAGE</div></div>
+      <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Philosophy rabbit holes entered</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--off);">
+  <div class="label reveal">Projects</div>
+  <h2 class="reveal">Things I've built.</h2>
+  <div class="projects-list reveal">
+
+    <a class="project" href="https://github.com/krish129ox" target="_blank" rel="noopener">
+      <span class="project-idx">01</span>
+      <div class="project-info">
+        <h3>Glamour Beauty</h3>
+        <p>Multi-page online booking platform for a beauty salon — complete frontend with Firebase real-time backend and Razorpay payment architecture.</p>
+        <div class="project-pills"><span class="pill">HTML/CSS</span><span class="pill">JavaScript</span><span class="pill">Firebase</span><span class="pill">Razorpay</span></div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="https://github.com/krish129ox" target="_blank" rel="noopener">
+      <span class="project-idx">02</span>
+      <div class="project-info">
+        <h3>Shivam CSC Center</h3>
+        <p>Bilingual (Hindi + English) government services website for a common service center, live and deployed on GitHub Pages.</p>
+        <div class="project-pills"><span class="pill">HTML/CSS</span><span class="pill">JavaScript</span><span class="pill">GitHub Pages</span><span class="pill">Bilingual UI</span></div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="https://github.com/krish129ox" target="_blank" rel="noopener">
+      <span class="project-idx">03</span>
+      <div class="project-info">
+        <h3>Solar System Simulation</h3>
+        <p>An interactive visual simulation of the solar system — planets orbiting the sun with accurate relative speeds and distances, built as a canvas-based web project.</p>
+        <div class="project-pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">Canvas API</span></div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="https://github.com/krish129ox" target="_blank" rel="noopener">
+      <span class="project-idx">04</span>
+      <div class="project-info">
+        <h3>Portfolio Website</h3>
+        <p>This site — built from scratch with clean typography, scroll animations, and all social profiles linked in. Meta, always.</p>
+        <div class="project-pills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span></div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+    <a class="project" href="https://github.com/krish129ox" target="_blank" rel="noopener" style="background:var(--off);">
+      <span class="project-idx" style="color:var(--border);">+</span>
+      <div class="project-info">
+        <h3 style="color:var(--ink3);">More on GitHub</h3>
+        <p>Java practice, Python scripts, and other experiments. github.com/krish129ox</p>
+        <div class="project-pills"><span class="pill">View All Repos</span></div>
+      </div>
+      <span class="project-arrow">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="label reveal">Certifications</div>
+  <h2 class="reveal">Industry recognition.</h2>
+  <div class="certs-grid reveal">
+
+    <!-- Deloitte -->
+    <div class="cert-card">
+      <div class="cert-logo">
+        <svg height="28" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+          <text x="0" y="44" font-family="Georgia,serif" font-size="42" font-weight="700" fill="#86BC25">deloitte.</text>
+        </svg>
+      </div>
+      <div class="cert-name">Technology Virtual Experience Program</div>
+      <div class="cert-issuer">Deloitte</div>
+      <span class="cert-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Certified
+      </span>
+    </div>
+
+    <!-- Mastercard -->
+    <div class="cert-card">
+      <div class="cert-logo">
+        <svg height="28" viewBox="0 0 160 50" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="30" cy="25" r="20" fill="#EB001B"/>
+          <circle cx="55" cy="25" r="20" fill="#F79E1B"/>
+          <path d="M42.5 10.5a20 20 0 0 1 0 29A20 20 0 0 1 42.5 10.5z" fill="#FF5F00"/>
+          <text x="82" y="32" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#1a1a1a">Mastercard</text>
+        </svg>
+      </div>
+      <div class="cert-name">Cybersecurity Virtual Experience Program</div>
+      <div class="cert-issuer">Mastercard</div>
+      <span class="cert-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Certified
+      </span>
+    </div>
+
+    <!-- TCS -->
+    <div class="cert-card">
+      <div class="cert-logo">
+        <svg height="28" viewBox="0 0 120 50" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0" y="8" width="34" height="34" rx="3" fill="#1a1f71"/>
+          <text x="6" y="33" font-family="Arial,sans-serif" font-size="18" font-weight="900" fill="white">TCS</text>
+          <text x="40" y="33" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="#1a1f71">iON</text>
+        </svg>
+      </div>
+      <div class="cert-name">Career Edge — Young Professional</div>
+      <div class="cert-issuer">Tata Consultancy Services (TCS)</div>
+      <span class="cert-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        Certified
+      </span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background:var(--off);">
+  <div class="label reveal">Skills</div>
+  <h2 class="reveal">What I work with.</h2>
+  <div class="skills-layout reveal">
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <div class="skill-items"><span class="sk">Java</span><span class="sk">HTML</span><span class="sk">CSS</span><span class="sk">JavaScript</span><span class="sk">SQL</span><span class="sk">Python</span></div>
+    </div>
+    <div class="skill-group">
+      <h4>Tools &amp; Platforms</h4>
+      <div class="skill-items"><span class="sk">Git</span><span class="sk">GitHub</span><span class="sk">VS Code</span><span class="sk">MySQL Workbench</span><span class="sk">Firebase</span><span class="sk">GitHub Pages</span></div>
+    </div>
+    <div class="skill-group">
+      <h4>Concepts</h4>
+      <div class="skill-items"><span class="sk">OOP</span><span class="sk">Data Structures</span><span class="sk">Computer Architecture</span><span class="sk">DBMS</span><span class="sk">Frontend Dev</span><span class="sk">Canvas API</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="label reveal">Experience &amp; Highlights</div>
+  <h2 class="reveal">Things that happened.</h2>
+  <div class="timeline reveal">
+    <div class="tl-item">
+      <div class="tl-year">2026</div>
+      <div class="tl-content"><h4>Organizing Team — Udbhav'26 Hackathon</h4><p>Core organizer for a 24-hour hackathon at SAGE University — branding, logistics, event management.</p><span class="tl-badge">Organizer</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2026</div>
+      <div class="tl-content"><h4>Meta × Scaler OpenEnv Hackathon</h4><p>Participated in the national-level hackathon hosted by Meta and Scaler.</p><span class="tl-badge">Hackathon</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2025–26</div>
+      <div class="tl-content"><h4>Industry Certifications — Deloitte, Mastercard, TCS</h4><p>Completed virtual experience programs covering technology consulting, cybersecurity, and professional development.</p><span class="tl-badge">Certification</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2025</div>
+      <div class="tl-content"><h4>Shipped Glamour Beauty &amp; Shivam CSC Center</h4><p>Built and deployed two full web projects with real clients and payment/backend integrations.</p><span class="tl-badge">Project</span></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">2025</div>
+      <div class="tl-content"><h4>B.Tech Computer Science &amp; Technology</h4><p>Started undergraduate studies at SAGE University, Indore. Batch 2025–2029.</p><span class="tl-badge">Education</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--off);">
+  <div class="label reveal">Contact</div>
+  <h2 class="reveal">Let's connect.</h2>
+  <div class="contact-grid reveal">
+    <div class="contact-intro">
+      <p>Whether it's a project idea, a collaboration, or just a conversation about philosophy and code — I'm around. Every link below goes directly to my profile.</p>
+    </div>
+    <div>
+      <div class="social-links">
+
+        <!-- LinkedIn -->
+        <a class="social-link" href="https://linkedin.com/in/krish-raj-163472377" target="_blank" rel="noopener noreferrer">
+          <div class="social-link-icon" style="background:#f0f7ff;border-color:#dce8f8;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div class="social-link-text"><div class="social-link-name">LinkedIn</div><div class="social-link-handle">Krish Raj</div></div>
+          <span class="social-link-arr">→</span>
+        </a>
+
+        <!-- GitHub -->
+        <a class="social-link" href="https://github.com/krish129ox" target="_blank" rel="noopener noreferrer">
+          <div class="social-link-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a1a1a"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </div>
+          <div class="social-link-text"><div class="social-link-name">GitHub</div><div class="social-link-handle">krish129ox</div></div>
+          <span class="social-link-arr">→</span>
+        </a>
+
+        <!-- Instagram -->
+        <a class="social-link" href="https://www.instagram.com/krish_raj118/" target="_blank" rel="noopener noreferrer">
+          <div class="social-link-icon" style="background:linear-gradient(135deg,#fdf0e8,#fde8f0);border:none;">
+            <svg width="20" height="20" viewBox="0 0 24 24"><defs><linearGradient id="ig3" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="50%" stop-color="#dc2743"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><path fill="url(#ig3)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </div>
+          <div class="social-link-text"><div class="social-link-name">Instagram</div><div class="social-link-handle">@krish_raj118</div></div>
+          <span class="social-link-arr">→</span>
+        </a>
+
+      </div>
+
+      <!-- Email -->
+      <a class="email-cta" href="mailto:krishrajgupta129@gmail.com">
+        <div class="email-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="email-text"><div class="email-label">Email</div><div class="email-val">krishrajgupta129@gmail.com</div></div>
+        <span class="email-arr">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Krish Raj — SAGE University, Indore</p>
+  <div class="footer-links">
+    <a href="https://github.com/krish129ox" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://linkedin.com/in/krish-raj-163472377" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://www.instagram.com/krish_raj118/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </div>
+</footer>
+
+<script>
+const els = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
