@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Krish Raj – Computer Science student and web developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F3F5FC;--surface:#FFFFFF;--text:#14172E;--muted:#555B80;--line:#D5DAEE;
+  --accent:#5A3FD8;--accent2:#0A7FA3;--sun:#E08A00;--on-accent:#FFFFFF;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0E1022;--surface:#171A33;--text:#E8EAF6;--muted:#A3A9CC;--line:#2A2E52;--accent:#A78BFA;--accent2:#4FD6FF;--sun:#FFB84D;--on-accent:#0E1022}
+}
+:root[data-theme="dark"]{--bg:#0E1022;--surface:#171A33;--text:#E8EAF6;--muted:#A3A9CC;--line:#2A2E52;--accent:#A78BFA;--accent2:#4FD6FF;--sun:#FFB84D;--on-accent:#0E1022}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent2);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font:800 20px var(--display);text-decoration:none}
+nav{display:flex;gap:20px;align-items:center;font-size:15px;font-weight:500}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--text)}
+#theme{font:inherit;background:none;border:1px solid var(--line);color:var(--text);border-radius:99px;padding:4px 12px;cursor:pointer}
+.hero{position:relative;min-height:min(86vh,720px);display:flex;align-items:center;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;cursor:crosshair}
+.hero .wrap{position:relative;pointer-events:none;padding-top:48px;padding-bottom:48px}
+.hero .wrap>*{pointer-events:auto}
+h1{font:800 clamp(52px,10vw,108px)/.95 var(--display);letter-spacing:-.03em;margin:0 0 20px}
+.role{font:500 clamp(19px,2.6vw,26px)/1.35 var(--display);max-width:22em;margin:0 0 28px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:10px;font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface)}
+.btn.main{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.hint{position:absolute;right:24px;bottom:16px;font-size:14px;color:var(--muted);margin:0}
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{font:700 clamp(30px,4.5vw,44px)/1.1 var(--display);letter-spacing:-.02em;margin:0 0 32px}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:48px}
+.about p{margin:0 0 16px;max-width:60ch}
+.facts{margin:0;padding:0;list-style:none;display:grid;gap:14px;align-content:start}
+.facts li{padding-left:16px;border-left:3px solid var(--accent2)}
+.facts b{display:block;font-weight:600}.facts span{color:var(--muted);font-size:15px}
+.proj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:12px 40px;padding:28px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj h3{font:700 28px/1.15 var(--display);margin:0}
+.proj p{margin:0 0 12px;max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;padding:0;list-style:none}
+.tags li{font-size:14px;padding:2px 10px;border-radius:99px;background:var(--surface);border:1px solid var(--line);color:var(--muted)}
+.links a{margin-right:18px;font-weight:600;color:var(--accent)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.skills h3{font:700 20px var(--display);margin:0 0 10px;color:var(--accent2)}
+.skills p{margin:0;color:var(--muted)}
+.timeline{display:grid;gap:22px;max-width:700px}
+.timeline div{display:grid;grid-template-columns:110px 1fr;gap:16px}
+.timeline time{color:var(--muted);font-weight:500}
+.timeline b{font-weight:600}
+.contact p{max-width:52ch;margin:0 0 24px;font-size:19px}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.wide{overflow-x:auto}
+@media (max-width:760px){
+  .about,.proj{grid-template-columns:1fr}
+  nav a:not(#theme){display:none}
+  .timeline div{grid-template-columns:1fr;gap:0}
+  .hint{position:static;padding:0 24px 16px}
+  .hero{flex-direction:column;align-items:stretch;justify-content:flex-end}
+  .hero canvas{height:55%;top:0;bottom:auto}
+  .hero .wrap{padding-top:55%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="#top">Krish Raj</a>
+  <nav aria-label="Main"><a href="#about">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#background">Background</a><a href="#contact">Contact</a>
+  <button id="theme" type="button" aria-label="Toggle light and dark theme">Theme</button></nav>
+</div></header>
+
+<main id="top">
+<div class="hero">
+  <canvas id="sky" aria-label="Interactive solar system. Click to add a planet."></canvas>
+  <div class="wrap">
+    <h1>Krish<br>Raj</h1>
+    <p class="role">Computer science student in Indore. I build and ship full-stack web projects, and I like making them interactive in 3D.</p>
+    <div class="cta"><a class="btn main" href="#projects">See my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+  </div>
+  <p class="hint">Click the sky to launch a planet</p>
+</div>
+
+<section id="about"><div class="wrap about">
+  <div>
+    <h2>About</h2>
+    <p>I'm a B.Tech Computer Science &amp; Technology student at SAGE University, Indore, with hands-on experience building and deploying full-stack web projects, exploring 3D and interactive web development, and working through data structures and algorithms in Java and C++.</p>
+    <p>I'm a Google Gemini Student Ambassador for 2026, helping build the campus tech community and organise events, including Udbhav26, Udbhav AI Sprint and Arkfest. I'm open to collaborating on interesting projects.</p>
+  </div>
+  <ul class="facts">
+    <li><b>SAGE University, Indore</b><span>B.Tech in Computer Science &amp; Technology, 2025–2029</span></li>
+    <li><b>Google Gemini Student Ambassador</b><span>2026</span></li>
+    <li><b>Based in Indore, India</b><span>Open to collaborations</span></li>
+  </ul>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <article class="proj">
+    <h3>Glamour Beauty</h3>
+    <div><p>A salon booking website for beauty services, deployed live with a Firebase backend and Razorpay payment integration.</p>
+    <ul class="tags"><li>Firebase</li><li>Razorpay</li><li>JavaScript</li></ul>
+    <div class="links"><a href="https://glamour-beauty-3d.web.app">Live site</a><a href="https://github.com/krish129ox/glamour-beauty-3d-model">Code</a></div></div>
+  </article>
+  <article class="proj">
+    <h3>Solar System Simulation</h3>
+    <div><p>An interactive 3D solar system with a real-time N-body physics simulation for objects that users add themselves. The sky above runs on the same idea.</p>
+    <ul class="tags"><li>Three.js</li><li>JavaScript</li><li>Physics simulation</li></ul>
+    <div class="links"><a href="https://github.com/krish129ox/solar-system-simulator">Code</a></div></div>
+  </article>
+  <article class="proj">
+    <h3>Shivam CSC Center</h3>
+    <div><p>A bilingual Hindi and English website for a government services center, built to make its services easier for people nearby to find and understand.</p>
+    <ul class="tags"><li>Bilingual</li><li>Web</li></ul></div>
+  </article>
+  <article class="proj">
+    <h3>Hand Pattern Visuals</h3>
+    <div><p>Visuals that respond to hand tracking, built for the browser.</p>
+    <ul class="tags"><li>Hand tracking</li><li>HTML</li></ul>
+    <div class="links"><a href="https://github.com/krish129ox/hand-pattern-visuals">Code</a></div></div>
+  </article>
+  <article class="proj">
+    <h3>LoveBloom</h3>
+    <div><p>A JavaScript web project.</p>
+    <ul class="tags"><li>JavaScript</li></ul>
+    <div class="links"><a href="https://github.com/krish129ox/lovebloom">Code</a></div></div>
+  </article>
+  <article class="proj">
+    <h3>GitHub profile README</h3>
+    <div><p>A polished profile page with animated elements and live stats cards. When the widely used github-readme-stats service went down, I fixed it by moving to a maintained fork.</p>
+    <div class="links"><a href="https://github.com/krish129ox">View profile</a></div></div>
+  </article>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div><h3>Web and backend</h3><p>Firebase, Spring Boot (REST APIs), MongoDB, Razorpay, GitHub Pages, Three.js, HTML and CSS</p></div>
+    <div><h3>Languages and tools</h3><p>JavaScript, Java, C++, SQL, Git, GitHub, VS Code, Linux</p></div>
+    <div><h3>Computer science</h3><p>Data structures and algorithms: arrays, two-pointer, Union-Find, graph algorithms and sorting</p></div>
+  </div>
+</div></section>
+
+<section id="background"><div class="wrap">
+  <h2>Background</h2>
+  <div class="timeline">
+    <div><time>2026</time><span><b>Google Gemini Student Ambassador</b><br>Building the campus tech community and organising events.</span></div>
+    <div><time>Events</time><span><b>Udbhav26</b><br><b>Udbhav AI Sprint</b><br><b>Arkfest</b><br>Events I've worked on.</span></div>
+    <div><time>2025–2029</time><span><b>B.Tech, Computer Science &amp; Technology</b><br>SAGE University, Indore</span></div>
+    <div><time>Certificates</time><span><b>Deloitte</b> Technology Virtual Experience<br><b>Mastercard</b> Cybersecurity Virtual Experience<br><b>TCS</b> Career Edge: Young Professional</span></div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap contact">
+  <h2>Contact</h2>
+  <p>Have a project, an event or an idea to build together? Send me a message.</p>
+  <div class="cta">
+    <a class="btn main" href="mailto:krishrajgupta129@gmail.com">Email me</a>
+    <a class="btn" href="https://github.com/krish129ox">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/krish-raj-163472377">LinkedIn</a>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap">Krish Raj, Indore, India</div></footer>
+
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById("theme");
+  btn.addEventListener("click",function(){
+    var dark=getComputedStyle(root).getPropertyValue("--bg").trim().toLowerCase()==="#0e1022";
+    root.setAttribute("data-theme",dark?"light":"dark");
+  });
+
+  var cv=document.getElementById("sky"),ctx=cv.getContext("2d"),GM=90000,bodies=[],W=0,H=0,cx=0,cy=0;
+  var still=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var colors=["--accent2","--accent","--sun","--accent2","--accent"];
+  function css(n){return getComputedStyle(root).getPropertyValue(n).trim()}
+  function launch(x,y,f){
+    var dx=x-cx,dy=y-cy,r=Math.hypot(dx,dy);if(r<28)return;
+    var v=Math.sqrt(GM/r)*(f||1);
+    bodies.push({x:x,y:y,vx:-dy/r*v,vy:dx/r*v,c:colors[bodies.length%colors.length],r:3+Math.random()*3,t:[]});
+    if(bodies.length>40)bodies.shift();
+  }
+  function size(){
+    var d=window.devicePixelRatio||1,b=cv.getBoundingClientRect();
+    W=b.width;H=b.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+    var mobile=window.innerWidth<=760;cx=mobile?W/2:W*.74;cy=H/2;
+    if(!bodies.length){[70,110,160,220,290].forEach(function(r,i){
+      var a=i*1.7;launch(cx+r*Math.cos(a),cy+r*Math.sin(a),1)});}
+  }
+  function step(dt){
+    bodies.forEach(function(b){
+      var dx=cx-b.x,dy=cy-b.y,d2=dx*dx+dy*dy,d=Math.sqrt(d2),a=GM/(d2*d);
+      b.vx+=dx*a*dt;b.vy+=dy*a*dt;b.x+=b.vx*dt;b.y+=b.vy*dt;
+      b.t.push(b.x,b.y);if(b.t.length>60)b.t.splice(0,2);
+    });
+    bodies=bodies.filter(function(b){return Math.hypot(b.x-cx,b.y-cy)>14});
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    var g=ctx.createRadialGradient(cx,cy,0,cx,cy,60);
+    g.addColorStop(0,css("--sun"));g.addColorStop(1,"transparent");
+    ctx.globalAlpha=.35;ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,60,0,7);ctx.fill();
+    ctx.globalAlpha=1;ctx.fillStyle=css("--sun");ctx.beginPath();ctx.arc(cx,cy,12,0,7);ctx.fill();
+    bodies.forEach(function(b){
+      var col=css(b.c);ctx.strokeStyle=col;ctx.globalAlpha=.35;ctx.lineWidth=1.5;ctx.beginPath();
+      for(var i=0;i<b.t.length;i+=2){i?ctx.lineTo(b.t[i],b.t[i+1]):ctx.moveTo(b.t[i],b.t[i+1])}
+      ctx.stroke();ctx.globalAlpha=1;ctx.fillStyle=col;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,7);ctx.fill();
+    });
+  }
+  var last=0;
+  function frame(t){
+    var dt=Math.min((t-last)/1000||0,.05);last=t;
+    if(!still)for(var i=0;i<4;i++)step(dt/4);
+    draw();requestAnimationFrame(frame);
+  }
+  cv.addEventListener("click",function(e){var b=cv.getBoundingClientRect();launch(e.clientX-b.left,e.clientY-b.top,.9)});
+  window.addEventListener("resize",function(){bodies=[];size()});
+  size();requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
